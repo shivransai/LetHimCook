@@ -1,0 +1,12 @@
+.app {
+    padding: 20px;
+  }
+  
+  .output-box {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #000;
+    width: 200px;
+    height: 100px;
+    color: white;
+  }
