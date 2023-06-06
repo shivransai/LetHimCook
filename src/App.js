@@ -83,7 +83,7 @@ const App = () => {
     />
 
       <Button onClick={handleClick} isLoading={isLoading}>
-          Cook Up
+          {buttonNameValue}
       </Button>
 
       <div className="output-box">
