@@ -1,8 +1,10 @@
 import React from 'react';
+import "./component.css"
 
-const Button = ({ onClick, children }) => {
+const Button = ({ onClick, children, isLoading }) => {
+
   return (
-    <button onClick={onClick}>
+    <button onClick={onClick} className={isLoading ? 'button-disabled' : 'button-enabled'} disabled={isLoading}>
       {children}
     </button>
   );

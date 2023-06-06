@@ -1,26 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import './styles.css';
-import Button from './components/button'; // path to the Button component
+import './styles/styles.css';
+import Button from './components/button'; 
 import Select from 'react-select';
-import axios from 'axios'; // make sure to install axios with npm install axios
+import axios from 'axios'; 
 
 const options = [
-  { value: 'casual', label: 'Casual' },
-  { value: 'angry', label: 'Angry' },
-  { value: 'shakespearean', label: 'Shakespearean' },
+  { value: 'casual', label: 'Friend' },
+  { value: 'professional, clear', label: 'Teacher/Manager' },
+  { value: 'Kanye West type, narcissistic, egotistical', label: 'Kanye' },
+  { value: 'shakespearean', label: 'Shakesphere' },
 ];
 
 const App = () => {
   const [selectedOption, setSelectedOption] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [outputValue, setOutputValue] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [buttonNameValue, setButtonNameValue] = useState("Cook Up");
 
   const handleChange = event => {
     setInputValue(event.target.value);
   };
 
-
   const handleClick = async () => {
+    setIsLoading(true);
+    setButtonNameValue("Loading ...");
+    setOutputValue("");
+
     try {
       // Create backend client
       const client = axios.create({
@@ -48,31 +54,43 @@ const App = () => {
     } catch (error) {
       console.error('Error calling API', error);
     }
+
+    setButtonNameValue("Cook Up");
+    setIsLoading(false);
   };
 
   return (
+    <div>
     <div className="app">
-      <input 
+      <div className='title'>
+        <text className='appName'>
+          let him cook.
+        </text>
+      </div>
+      <textarea className="input-box"
         type="text" 
         value={inputValue} 
         onChange={handleChange} 
-        placeholder="Type here..."
+        placeholder="type your message here..."
       />
 
-    <Select
+    <Select className='picker'
         defaultValue={selectedOption}
         onChange={setSelectedOption}
         options={options}
         isMulti={true}
+        placeholder="pick who you want to send it to..."
     />
 
-      <Button onClick={handleClick}>
-          Generate
+      <Button onClick={handleClick} isLoading={isLoading}>
+          Cook Up
       </Button>
 
       <div className="output-box">
+      {isLoading && <img src={process.env.PUBLIC_URL + '/loading.gif'} alt="Loading..." />}
         {outputValue}
       </div>
+    </div>
     </div>
   );
 };
