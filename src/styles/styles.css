@@ -1,16 +1,21 @@
 .app {
     padding: 20px;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-flow: wrap;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
+    gap: 25px;
+    width: 90%;
+    height: 90%;
   }
 
   .title {
     flex-direction: column;
     flex-wrap: wrap;
     gap: 20px;
+    width: 100%;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 
   .logo {
@@ -25,20 +30,34 @@
   }
 
   .input-box {
-    height: 40px;
-    width: 500px;
+    width: 60%;
     height: 100px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    text-align: center;
+  }
+
+  .input-text {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 11pt;
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
   }
 
+
   .picker {
     height: 40px;
-    width: 510px;
+    width: 60%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: whitesmoke;
+    font-size: 11pt;
+    border-radius: 10px;
   }
   
   .output-box {
     margin-top: 20px;
-    width: 500px;
+    width: 60%;
     height: 300px;
     background-color: lightgray;
     border-radius: 10px;
