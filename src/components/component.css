@@ -31,4 +31,12 @@
   .button-enabled:hover {
     background-color: #1b631f; /* Green background on hover */
   }
+
+  .button-div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
   
